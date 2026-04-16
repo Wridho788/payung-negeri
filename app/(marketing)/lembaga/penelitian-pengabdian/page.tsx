@@ -25,7 +25,7 @@ export default function LPPMPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-16 md:py-24 px-6 md:px-8 bg-gradient-to-br from-primary-50 via-[#FCAF35]/20 to-white text-primary-900">
+      <section className="py-16 md:py-24 px-6 md:px-8 bg-linear-to-r from-primary-50 via-[#FCAF35]/20 to-white text-primary-900">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Penelitian & Pengabdian kepada Masyarakat</h1>
           <p className="text-xl md:text-2xl text-primary-900/80 mb-8 max-w-2xl mx-auto">
@@ -99,7 +99,7 @@ export default function LPPMPage() {
       </section>
 
       {/* CTA Kolaborasi */}
-      <section className="py-16 md:py-24 px-6 md:px-8 bg-gradient-to-r from-[#FCAF35] via-orange-400 to-primary-400 text-primary-900">
+      <section className="py-16 md:py-24 px-6 md:px-8 bg-linear-to-r from-[#FCAF35] via-orange-400 to-primary-400 text-primary-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Tertarik Berkolaborasi dalam Penelitian atau Pengabdian?</h2>
           <p className="text-lg md:text-xl mb-8">Hubungi kami untuk kerja sama penelitian, pengabdian, atau program kolaborasi lainnya.</p>

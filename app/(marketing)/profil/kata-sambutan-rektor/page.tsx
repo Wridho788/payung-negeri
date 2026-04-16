@@ -6,7 +6,7 @@ export default function KataSambutanRektorPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-12 md:py-16 px-6 md:px-8 bg-gradient-to-br from-primary-50 to-white">
+      <section className="py-12 md:py-16 px-6 md:px-8 bg-linear-to-br from-primary-50 to-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -25,7 +25,7 @@ export default function KataSambutanRektorPage() {
           {/* Photo & Title */}
           <div className="mb-12 flex flex-col md:flex-row items-center gap-8 md:gap-12">
             {/* Photo */}
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <div className="relative w-48 h-56 md:w-56 md:h-64 rounded-lg overflow-hidden shadow-lg">
                 <Image
                   src="/rektor.png"

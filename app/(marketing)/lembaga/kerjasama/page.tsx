@@ -36,7 +36,7 @@ export default function KerjaSamaPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-16 md:py-24 px-6 md:px-8 bg-gradient-to-br from-primary-50 via-[#009ADB]/20 to-white text-primary-900">
+      <section className="py-16 md:py-24 px-6 md:px-8 bg-linear-to-r from-primary-50 via-[#009ADB]/20 to-white text-primary-900">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Kerja Sama</h1>
           <p className="text-xl md:text-2xl text-primary-900/80 mb-8 max-w-2xl mx-auto">
@@ -116,7 +116,7 @@ export default function KerjaSamaPage() {
           <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-12 text-center">Alur Pengajuan Kerja Sama</h2>
           <div className="flex flex-col md:flex-row items-center justify-center gap-8">
             {submissionSteps.map((item, idx) => (
-              <div key={idx} className="flex-1 bg-[#FCAF35]/20 rounded-2xl shadow-md p-8 border border-yellow-100 flex flex-col items-center text-center min-w-[180px]">
+              <div key={idx} className="flex-1 bg-[#FCAF35]/20 rounded-2xl shadow-md p-8 border border-yellow-100 flex flex-col items-center text-center min-w-45">
                 <div className="w-12 h-12 mb-4 rounded-full bg-[#FCAF35] text-primary-900 flex items-center justify-center text-2xl font-bold">{item.step}</div>
                 <h3 className="text-lg font-bold text-yellow-700 mb-2">{item.title}</h3>
               </div>
@@ -126,7 +126,7 @@ export default function KerjaSamaPage() {
       </section>
 
       {/* CTA Ajukan Kerja Sama */}
-      <section className="py-16 md:py-24 px-6 md:px-8 bg-gradient-to-r from-[#009ADB] via-[#FCAF35] to-primary-400 text-primary-900">
+      <section className="py-16 md:py-24 px-6 md:px-8 bg-linear-to-r from-[#009ADB] via-[#FCAF35] to-primary-400 text-primary-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ajukan Kerja Sama dengan Kami</h2>
           <p className="text-lg md:text-xl mb-8">Mari berkolaborasi untuk pengembangan pendidikan dan kesehatan</p>

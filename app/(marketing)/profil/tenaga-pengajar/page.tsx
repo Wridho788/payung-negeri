@@ -54,7 +54,7 @@ export default function TenagaPengajarPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-12 md:py-16 px-6 md:px-8 bg-gradient-to-br from-primary-50 to-white">
+      <section className="py-12 md:py-16 px-6 md:px-8 bg-linear-to-br from-primary-50 to-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">

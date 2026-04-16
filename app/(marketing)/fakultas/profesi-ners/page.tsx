@@ -96,7 +96,7 @@ export default function ProfsisNersPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 px-6 md:px-8 bg-gradient-to-br from-blue-100 via-primary-50 to-white text-primary-900 overflow-hidden">
+      <section className="relative py-16 md:py-24 px-6 md:px-8 bg-linear-to-br from-blue-100 via-primary-50 to-white text-primary-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none select-none">
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-300 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-200 rounded-full blur-3xl"></div>
@@ -166,7 +166,7 @@ export default function ProfsisNersPage() {
                 <span className="absolute -top-3 -right-3 bg-white rounded-full shadow p-2 border border-blue-300">
                   <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#2563eb"/><path d="M16 8v8l6 3" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </span>
-                <div className="bg-gradient-to-br from-blue-600 to-blue-400 text-white rounded-full shadow-xl border-4 border-blue-300 px-10 py-8 text-3xl font-extrabold tracking-wide flex flex-col items-center animate-fade-in">
+                <div className="bg-linear-to-br from-blue-600 to-blue-400 text-white rounded-full shadow-xl border-4 border-blue-300 px-10 py-8 text-3xl font-extrabold tracking-wide flex flex-col items-center animate-fade-in">
                   {accreditation.status}
                   <span className="block text-base font-semibold mt-2">{accreditation.agency}</span>
                 </div>
@@ -345,7 +345,7 @@ export default function ProfsisNersPage() {
       </section>
 
       {/* CTA Final Section */}
-      <section className="py-16 md:py-24 px-6 md:px-8 bg-gradient-to-r from-blue-600 via-blue-400 to-primary-400 text-white">
+      <section className="py-16 md:py-24 px-6 md:px-8 bg-linear-to-r from-blue-600 via-blue-400 to-primary-400 text-white">
         <div className="relative max-w-4xl mx-auto text-center overflow-hidden">
           <div className="relative z-10">
             <div className="inline-block px-5 py-2 bg-white/20 rounded-full mb-6 backdrop-blur-sm border border-white/30 animate-fade-in">
