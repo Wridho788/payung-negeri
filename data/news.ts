@@ -1,80 +1,37 @@
-export interface NewsItem {
-  title: string;
-  image: string;
-  date: string;
-  href: string;
-  excerpt?: string;
-}
+import type { NewsItem } from "@/types/news";
 
-const NEWS_SOURCE_URL = "https://www.payungnegeri.ac.id/berita";
-const MAX_NEWS_ITEMS = 3;
-const FALLBACK_IMAGE = "/berita.png";
-
-function decodeHtml(value: string) {
-  return value
-    .replace(/&amp;/g, "&")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&nbsp;/g, " ");
-}
-
-function normalizeText(value: string) {
-  return decodeHtml(value.replace(/<[^>]*>/g, "")).replace(/\s+/g, " ").trim();
-}
-
-function parseNewsFromHtml(html: string): NewsItem[] {
-  const itemRegex =
-    /<div class="blog-item[\s\S]*?<div class="blog-date">[\s\S]*?<\/i>\s*([^<]+)<\/div>[\s\S]*?<h4 class="blog-title">\s*<a href="([^"]+)">([\s\S]*?)<\/a>\s*<\/h4>[\s\S]*?(?:<p class="truncate-text">([\s\S]*?)<\/p>)?/gi;
-
-  const items: NewsItem[] = [];
-  let match: RegExpExecArray | null = itemRegex.exec(html);
-
-  while (match && items.length < MAX_NEWS_ITEMS) {
-    const [, rawDate, rawHref, rawTitle, rawExcerpt] = match;
-    const title = normalizeText(rawTitle);
-
-    if (title) {
-      items.push({
-        title,
-        date: normalizeText(rawDate),
-        href: new URL(rawHref, NEWS_SOURCE_URL).toString(),
-        image: FALLBACK_IMAGE,
-        excerpt: rawExcerpt ? normalizeText(rawExcerpt) : undefined,
-      });
-    }
-
-    match = itemRegex.exec(html);
+export const news: NewsItem[] = [
+  {
+    slug: "dies-natalis-2026",
+    title: "Dies Natalis ke-10 Institut Kesehatan Payung Negeri",
+    date: "2026-04-10",
+    image: "/berita1.jpg",
+    excerpt: "Institut Kesehatan Payung Negeri merayakan Dies Natalis ke-10 dengan berbagai rangkaian acara ilmiah dan hiburan.",
+    content: `Institut Kesehatan Payung Negeri menggelar Dies Natalis ke-10 pada 10 April 2026. Acara ini diisi dengan seminar nasional, lomba karya tulis ilmiah, dan pentas seni mahasiswa. Rektor dalam sambutannya menyampaikan harapan agar kampus semakin maju dan berkontribusi untuk masyarakat.`
+  },
+  {
+    slug: "akreditasi-unggul-2026",
+    title: "Prodi Keperawatan Raih Akreditasi Unggul",
+    date: "2026-03-28",
+    image: "/berita2.jpg",
+    excerpt: "Program Studi Keperawatan berhasil meraih akreditasi Unggul dari LAM-PTKes tahun 2026.",
+    content: `Prestasi membanggakan diraih Prodi Keperawatan Institut Kesehatan Payung Negeri dengan memperoleh akreditasi Unggul. Hal ini menjadi bukti kualitas pendidikan dan pelayanan yang diberikan kepada mahasiswa dan masyarakat.`
+  },
+  {
+    slug: "kerjasama-internasional-2026",
+    title: "Kerjasama Internasional dengan Universitas di Jepang",
+    date: "2026-02-15",
+    image: "/berita3.jpg",
+    excerpt: "Institut Kesehatan Payung Negeri menandatangani MoU dengan universitas ternama di Jepang untuk pengembangan riset dan pertukaran mahasiswa.",
+    content: `Penandatanganan MoU antara Institut Kesehatan Payung Negeri dan salah satu universitas di Jepang dilakukan pada 15 Februari 2026. Kerjasama ini meliputi pertukaran mahasiswa, dosen, serta kolaborasi riset di bidang kesehatan.`
   }
+];
 
-  if (items.length < MAX_NEWS_ITEMS) {
-    console.warn(
-      `[news] Parsed ${items.length}/${MAX_NEWS_ITEMS} items from ${NEWS_SOURCE_URL}. Source markup may have changed.`,
-    );
-  }
 
-  return items;
+export function getAllNews() {
+  return news;
 }
 
-export async function getLatestNews(): Promise<NewsItem[]> {
-  try {
-    const response = await fetch(NEWS_SOURCE_URL, {
-      next: { revalidate: 60 * 60 },
-      headers: {
-        "User-Agent": "Mozilla/5.0 (compatible; PayungNegeriBot/1.0)",
-      },
-    });
-
-    if (!response.ok) {
-      console.warn(`[news] Failed to fetch ${NEWS_SOURCE_URL}: ${response.status} ${response.statusText}`);
-      return [];
-    }
-
-    const html = await response.text();
-    return parseNewsFromHtml(html);
-  } catch (error) {
-    console.error("[news] Error while fetching/parsing latest news:", error);
-    return [];
-  }
+export function getNewsBySlug(slug: string) {
+  return news.find((item) => item.slug === slug);
 }
