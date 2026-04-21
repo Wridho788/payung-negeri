@@ -35,16 +35,22 @@ export default function Footer() {
                 Fakultas
               </Link>
             </li>
+             <li>
+              <Link href="/layanan" className="transition-colors duration-200 hover:text-primary-500">
+                Layanan
+              </Link>
+            </li>
+             <li>
+              <Link href="/lembaga" className="transition-colors duration-200 hover:text-primary-500">
+                Lembaga
+              </Link>
+            </li>
             <li>
               <Link href="/berita" className="transition-colors duration-200 hover:text-primary-500">
                 Berita
               </Link>
             </li>
-            <li>
-              <Link href="/kontak" className="transition-colors duration-200 hover:text-primary-500">
-                Kontak
-              </Link>
-            </li>
+            
           </ul>
         </div>
 

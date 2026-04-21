@@ -41,7 +41,7 @@ export default function KataSambutanRektorPage() {
             {/* Text */}
             <div className="flex-1">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                Dr. H. Nama Rektor, M.Kes
+                DR.HJ.Deswinda, S.Kep, Ns, M.Kes
               </h2>
               <p className="text-lg font-semibold text-primary-600 mb-4">
                 Rektor Institut Kesehatan Payung Negeri Pekanbaru

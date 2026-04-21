@@ -99,22 +99,31 @@ export default function Navbar() {
           </div>
         </Link>
 
+
         <nav className="hidden items-center gap-3 lg:flex xl:gap-4">
-          {desktopNavItems.map((item) =>
-            isGroup(item) ? (
-              <NavbarMenu key={item.label} item={item} isActive={groupHasActivePath(item, pathname)} />
-            ) : (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`px-2 py-1 text-[1.1rem] font-semibold leading-none transition-colors xl:text-[1.2rem] ${
-                  isActiveLink(item.href, pathname) ? "text-[#006FA9]" : "text-[#007FB8] hover:text-[#0099DA]"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ),
-          )}
+          {desktopNavItems.map((item) => {
+            if (isGroup(item)) {
+              const active = groupHasActivePath(item, pathname);
+              return (
+                <div key={item.label} className={active ? "font-bold text-[#006FA9]" : "text-[#007FB8] hover:text-[#0099DA]"}>
+                  <NavbarMenu item={item} isActive={active} />
+                </div>
+              );
+            } else {
+              const active = isActiveLink(item.href, pathname);
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`px-2 py-1 text-[1.1rem] font-semibold leading-none transition-colors xl:text-[1.2rem] ${
+                    active ? "text-[#006FA9] font-bold border-b-2 border-[#F6C343]" : "text-[#007FB8] hover:text-[#0099DA]"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            }
+          })}
         </nav>
 
         <div className="lg:hidden">

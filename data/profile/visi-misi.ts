@@ -1,4 +1,4 @@
-export const visiImageUrl = "https://www.payungnegeri.ac.id/images/kampus_ikespn.jpg";
+export const visiImageUrl = "/gedung.jpg";
 
 export const visiImageAlt = "Kampus Institut Kesehatan Payung Negeri";
 
